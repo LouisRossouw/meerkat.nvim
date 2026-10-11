@@ -2,8 +2,6 @@
 
 A lightweight, JSON-driven workflow runner for Neovim with built-in live fuzzy search and category browsing.
 
-_Die meerkatte loop die workflows!_
-
 Requires Neovim **0.9 or newer** — there are no external dependencies. (The built-in `vim.pack` install path below needs 0.12+.)
 
 ---

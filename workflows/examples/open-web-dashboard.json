@@ -1,0 +1,26 @@
+{
+  "name": "Open Web Dashboard",
+  "description": "Check host and open Grafana dashboard in default browser",
+  "inputs": [
+    {
+      "name": "host",
+      "prompt": "Server Hostname",
+      "default": "prod-server"
+    },
+    {
+      "name": "port",
+      "prompt": "Dashboard Port",
+      "default": "3000"
+    }
+  ],
+  "steps": [
+    {
+      "type": "notify",
+      "message": "Opening dashboard for {host} on port {port}..."
+    },
+    {
+      "type": "open_url",
+      "url": "http://{host}:{port}/dashboard"
+    }
+  ]
+}

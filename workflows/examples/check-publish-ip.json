@@ -1,0 +1,20 @@
+{
+  "name": "Check Public IP",
+  "description": "Fetch current public IP address, notify and copy to clipboard",
+  "steps": [
+    {
+      "type": "http_request",
+      "method": "GET",
+      "url": "https://api.ipify.org?format=json",
+      "save_to": "ip_info"
+    },
+    {
+      "type": "notify",
+      "message": "Your public IP is: {ip_info.ip}"
+    },
+    {
+      "type": "clipboard",
+      "text": "{ip_info.ip}"
+    }
+  ]
+}

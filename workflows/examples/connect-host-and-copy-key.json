@@ -1,0 +1,30 @@
+{
+  "name": "Connect Host & Copy Key",
+  "description": "Copy connection string to clipboard and start SSH session",
+  "inputs": [
+    {
+      "name": "host",
+      "prompt": "Target Host IP / Domain",
+      "default": "192.168.1.50"
+    },
+    {
+      "name": "user",
+      "prompt": "SSH Username",
+      "default": "$USER"
+    }
+  ],
+  "steps": [
+    {
+      "type": "clipboard",
+      "text": "ssh {user}@{host}"
+    },
+    {
+      "type": "notify",
+      "message": "Copied 'ssh {user}@{host}' to clipboard."
+    },
+    {
+      "type": "ssh_terminal",
+      "host": "{user}@{host}"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Deploy Service",
+  "description": "Deploy to chosen environment and post a webhook",
+  "inputs": [
+    {
+      "name": "environment",
+      "prompt": "Select Environment",
+      "type": "select",
+      "choices": ["dev", "staging", "production"]
+    },
+    {
+      "name": "tag",
+      "prompt": "Release tag / branch",
+      "default": "main"
+    },
+    {
+      "name": "deployer",
+      "prompt": "Deployer name",
+      "default": "$USER"
+    }
+  ],
+  "steps": [
+    {
+      "type": "confirm",
+      "message": "Deploy tag '{tag}' to {environment} as {deployer}?"
+    },
+    {
+      "type": "notify",
+      "message": "Deploying {tag} to {environment}..."
+    },
+    {
+      "type": "http_request",
+      "method": "POST",
+      "url": "https://api.example.com/deploy",
+      "body": "{\"env\":\"{environment}\",\"tag\":\"{tag}\",\"user\":\"{deployer}\"}",
+      "headers": {
+        "Content-Type": "application/json"
+      }
+    },
+    {
+      "type": "notify",
+      "message": "Deployment triggered successfully!"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Open Scratch Log Split",
+  "description": "Opens a fresh vsplit and sets buffer options",
+  "inputs": [
+    {
+      "name": "log_type",
+      "prompt": "Log type",
+      "type": "select",
+      "choices": ["access.log", "error.log", "syslog"]
+    }
+  ],
+  "steps": [
+    {
+      "type": "vim_command",
+      "command": "vsplit /var/log/{log_type}"
+    },
+    {
+      "type": "lua_command",
+      "code": "vim.wo.wrap = false; vim.wo.number = true"
+    },
+    {
+      "type": "notify",
+      "message": "Opened /var/log/{log_type} in split"
+    }
+  ]
+}

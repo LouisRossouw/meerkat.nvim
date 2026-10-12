@@ -20,6 +20,7 @@ require("meerkat").setup {
   },
   default_source = "Personal",
 }
+```
 
 ## Usage
 
@@ -36,7 +37,6 @@ Run `:Meerkat` (or `:meerkat`) to open the floating picker.
 
 Workflows are `.json` files placed in the `workflows/` directory. Subdirectories automatically become categories and folders:
 
-```
 
 workflows/
 ├── Hosts/
@@ -44,7 +44,6 @@ workflows/
 └── Deploy/
 └── deploy-api.json
 
-```
 
 See the workflows/examples/
 

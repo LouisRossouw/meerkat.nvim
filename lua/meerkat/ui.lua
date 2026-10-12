@@ -792,8 +792,7 @@ function M.open(commands, on_select, on_dry_run, opts)
   vim.keymap.set("i", "<BS>", function()
     local text = vim.api.nvim_buf_get_lines(prompt_buf, 0, 1, false)[1] or ""
     if text == "" and #current_path > 0 then
-      go_back()
-      return ""
+      vim.schedule(go_back)
     end
     return "<BS>"
   end, { buffer = prompt_buf, expr = true, silent = true })

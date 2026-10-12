@@ -37,13 +37,13 @@ Run `:Meerkat` (or `:meerkat`) to open the floating picker.
 
 Workflows are `.json` files placed in the `workflows/` directory. Subdirectories automatically become categories and folders:
 
-
+```
 workflows/
 ├── Hosts/
 │ └── connect.json
 └── Deploy/
 └── deploy-api.json
-
+```
 
 See the workflows/examples/
 
